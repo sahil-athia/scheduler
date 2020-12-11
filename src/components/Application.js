@@ -34,14 +34,29 @@ export default function Application(props) {
   // const setDays = days => setState(prev => ({ ...prev, days }));
   const dailyAppointments = getAppointmentsForDay(state, state.day)
   const dailyInterviewers = getInterviewersForDay(state, state.day)
-  console.log(dailyInterviewers)
+
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
+    .then(setState(() => ({...state, appointments})))
+
+  }
 
   const spots = dailyAppointments.map((appointment) => {
-    const interview = getInterview(state, appointment.interview)
-    return <Appointment
-      key={appointment.id}
-      interview={interview}
-      interviewers={dailyInterviewers}
+    const interviews = getInterview(state, appointment.interview)
+      console.log(interviews)
+      return <Appointment
+      key = {appointment.id}
+      interview = {interviews}
+      interviewers = {dailyInterviewers}
+      bookInterview = {bookInterview}
       {...appointment}
     />
     // ...appointment sends all the props outside of key in the array

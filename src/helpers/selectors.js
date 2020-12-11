@@ -15,13 +15,11 @@ export function getAppointmentsForDay(state, day) {
 
 export function getInterviewersForDay(state, day) {
   const dayFound = state.days.find(currDay => currDay.name === day)
-  console.log(dayFound)
 
   if (!dayFound){
     return [];
   }
   const interviewers = dayFound.interviewers.map(interviewerId => state.interviewers[interviewerId])
-  console.log(interviewers)
   return interviewers
 
 }
