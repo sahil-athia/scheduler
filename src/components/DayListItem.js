@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import "components/DayListItem.scss";
 
 export default function DayListItem(props) {
-  
   const formatSpots = (spots) => {
     const text = (spots === 1) ? 'spot' : 'spots'
     const number = spots ? spots : 'no'
