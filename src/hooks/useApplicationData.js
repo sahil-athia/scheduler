@@ -26,8 +26,6 @@ export default function useApplicationData() {
     
 
     function bookInterview(id, interview) {
-      let day;
-      let days;
 
       const appointment = {
         ...state.appointments[id],
@@ -37,13 +35,15 @@ export default function useApplicationData() {
         ...state.appointments,
         [id]: appointment
       };
+      // create a new appontments array for the state
 
       const elementsIndex = state.days.findIndex(element => element.name === state.day )
-      let newDays = [...state.days]
-      newDays[elementsIndex] = {...newDays[elementsIndex], spots: newDays[elementsIndex].spots--}
+      let days = [...state.days]
+      days[elementsIndex] = {...days[elementsIndex], spots: days[elementsIndex].spots - 1}
+      // edit the spots in the correct day in days array to keep track of spots
 
       return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
-      .then(() => setState(() => ({...state, appointments})))
+      .then(() => setState(() => ({...state, appointments, days})))
 
     }
 
@@ -56,13 +56,15 @@ export default function useApplicationData() {
         ...state.appointments,
         [id]: appointment
       };
+      // create a new appontments array for the state
       
       const elementsIndex = state.days.findIndex(element => element.name === state.day )
-      let newDays = [...state.days]
-      newDays[elementsIndex] = {...newDays[elementsIndex], spots: newDays[elementsIndex].spots++}
+      let days = [...state.days]
+      days[elementsIndex] = {...days[elementsIndex], spots: days[elementsIndex].spots + 1}
+      // edit the spots in the correct day in days array to keep track of spots
 
       return axios.delete(`http://localhost:8001/api/appointments/${id}`)
-      .then(() => setState(() => ({...state, appointments})))
+      .then(() => setState(() => ({...state, appointments, days })))
     }
     return {state, setDay, bookInterview, cancelInterview}
   }
