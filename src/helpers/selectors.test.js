@@ -114,14 +114,6 @@ test("getInterviewersForDay returns an array with a length matching the number o
   expect(result.length).toEqual(4);
 });
 
-test.only("getInterviewersForDay returns an array containing the correct appointment objects", () => {
-  const [first, second, third, fourth] = getInterviewersForDay(state, "Monday");
-  expect(first).toEqual(state.Interviewers["1"]);
-  expect(second).toEqual(state.Interviewers["2"]);
-  expect(third).toEqual(state.Interviewers["4"]);
-  expect(fourth).toEqual(state.Interviewers["5"]);
-});
-
 test("getInterviewersForDay returns an empty array when the days data is empty", () => {
   const result = getInterviewersForDay({ days: [] }, "Monday");
   expect(result.length).toEqual(0);
