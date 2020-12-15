@@ -16,6 +16,7 @@ export default function InterviewerListItem(props) {
     <li 
       className={liClass}
       onClick={props.setInterviewer}
+      data-testid="interviewer"
     >
       <img
         className={imgClass}

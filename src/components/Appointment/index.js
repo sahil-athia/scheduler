@@ -89,9 +89,9 @@ export default function Appointment(props) {
         />
       )}
       {mode === SAVING && <Status message="saving"/>}
-      {mode === ERROR_SAVE && <Error message="There was an error saving your appointmnet" onClose={onClose}/>}
+      {mode === ERROR_SAVE && <Error message="There was an error saving your appointment" onClose={onClose}/>}
       {mode === DELETING && <Status message="deleting"/>}
-      {mode === ERROR_DELETE && <Error message="There was an error deleting your appointmnet" onClose={onClose}/>}
+      {mode === ERROR_DELETE && <Error message="There was an error deleting your appointment" onClose={onClose}/>}
       {mode === CONFIRM && (
         <Confirm
           message='Are you sure you want to delete?' 
