@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from 'classnames';
 import "./InterviewerListItem.scss";
+import { prettyDOM } from "@testing-library/react";
 
 export default function InterviewerListItem(props) {
   let imgClass = classNames('interviewers__item-image', {
@@ -19,7 +20,7 @@ export default function InterviewerListItem(props) {
       <img
         className={imgClass}
         src={props.avatar}
-        alt="..."
+        alt={props.name}
       />
       {props.selected && props.name}
     </li>
