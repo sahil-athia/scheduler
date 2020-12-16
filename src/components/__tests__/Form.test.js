@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/react/cleanup-after-each";
 import "@testing-library/jest-dom/extend-expect";
 
 
-import Form from "components/Appointment/Form"
+import Form from "components/Appointment/Form";
 
-afterEach(cleanup)
+afterEach(cleanup);
 
 describe("Form Testing", () => {
   const interviewers = [
@@ -18,17 +18,17 @@ describe("Form Testing", () => {
   ];
 
   it("renders without crashing", () => {
-    render(<Form interviewers={interviewers}/>)
-  })
+    render(<Form interviewers={interviewers}/>);
+  });
 
   it("renders without student name if not provided", () => {
-    const {getByPlaceholderText} = render(<Form interviewers={interviewers}/>)
+    const {getByPlaceholderText} = render(<Form interviewers={interviewers}/>);
     // we are destructuring our function from the render
     expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
   });
 
   it("renders with initial student name", () => {
-    const {getByTestId} = render(<Form interviewers={interviewers} name="Lydia Miller-Jones"/>)
+    const {getByTestId} = render(<Form interviewers={interviewers} name="Lydia Miller-Jones"/>);
     // we are destructuring our function from the render
     expect(getByTestId("student-name-input")).toHaveValue("Lydia Miller-Jones");
     // requires us to add data-testid, with student-name-input (data-testid = "student-name-input")
@@ -37,11 +37,11 @@ describe("Form Testing", () => {
   // getByTestId can be replaced with getByPlaceholderText
 
   it("validates that the student name is not blank", () => {
-    const onSave = jest.fn()
+    const onSave = jest.fn();
   
-    const {getByText} = render(<Form interviewers={interviewers} onSave={onSave}/>)
+    const {getByText} = render(<Form interviewers={interviewers} onSave={onSave}/>);
   
-    fireEvent.click(getByText("Save"))
+    fireEvent.click(getByText("Save"));
   
     expect(getByText(/Please fill in name and select an interviewer/i)).toBeInTheDocument();
     expect(onSave).not.toHaveBeenCalled();
@@ -79,7 +79,7 @@ describe("Form Testing", () => {
     const input = getByPlaceholderText("Enter Student Name");
   
     fireEvent.change(input, { target: { value: "Lydia Miller-Jones" } });
-    // this will trigger the onChange event in out input (i think)
+    // this will trigger the onChange event in our input 
     fireEvent.click(getByText("Save"));
   
     expect(onSave).toHaveBeenCalledTimes(1);
@@ -111,4 +111,4 @@ describe("Form Testing", () => {
   
     expect(onCancel).toHaveBeenCalledTimes(1);
   });
-})
+});

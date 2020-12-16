@@ -1,3 +1,4 @@
+// reuseable mock data that matches data server schema
 const fixtures = {
   days: [
     {
@@ -52,10 +53,9 @@ const fixtures = {
     }
   }
 };
-// reuseable mock data that matches data server schema
 
 
-// this is mocking the axios.get function 
+// this is mocking the axios.get, .put and .delete function 
 export default {
   get: jest.fn(url => {
     if (url === "/api/days") {
@@ -96,32 +96,4 @@ export default {
       statusText: "No Content"
     })
   })
-} 
-
-
-/* switch(url) {
-  case "/api/days": {
-    return Promise.resolve({
-      status: 200,
-      statusText: "OK",
-      data: fixtures.days
-    });
-  }
-  case "/api/appointments": {
-    return Promise.resolve({
-      status: 200,
-      statusText: "OK",
-      data: fixtures.appointments
-    });
-  }
-  case "/api/interviewers": {
-    return Promise.resolve({
-      status: 200,
-      statusText: "OK",
-      data: fixtures.interviewers
-    });
-  }
-  default: {
-    return Promise.reject()
-  }
-} */
+}; 

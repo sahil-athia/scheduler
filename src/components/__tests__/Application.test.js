@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import { render, cleanup, waitForElement, fireEvent, getAllByTestId, getByPlaceholderText, getByAltText, queryByText, queryByAltText } from "@testing-library/react";
-import { getByText, prettyDOM } from "@testing-library/react";
+import { getByText } from "@testing-library/react";
 // required for scoped queries, and reading the container
 
 import Application from "components/Application";
