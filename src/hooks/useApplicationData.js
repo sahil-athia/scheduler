@@ -41,7 +41,6 @@ export default function useApplicationData() {
       days[elementsIndex] = {...days[elementsIndex], spots: days[elementsIndex].spots - 1}
       // edit the spots in the correct day in days array to keep track of spots
   
-      console.log(!state.appointments[id].interview)
       return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
       .then(() => {
         const notOnEdit = !state.appointments[id].interview ? {...state, appointments, days } : {...state, appointments }

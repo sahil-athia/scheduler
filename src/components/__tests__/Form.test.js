@@ -43,7 +43,7 @@ describe("Form Testing", () => {
   
     fireEvent.click(getByText("Save"))
   
-    expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
+    expect(getByText(/Please fill in name and select an interviewer/i)).toBeInTheDocument();
     expect(onSave).not.toHaveBeenCalled();
   });
   
@@ -55,7 +55,7 @@ describe("Form Testing", () => {
   
     fireEvent.click(getByText("Save"));
   
-    expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
+    expect(getByText(/Please fill in name and select an interviewer/i)).toBeInTheDocument();
     expect(onSave).not.toHaveBeenCalled();
   
     fireEvent.change(getByPlaceholderText("Enter Student Name"), {

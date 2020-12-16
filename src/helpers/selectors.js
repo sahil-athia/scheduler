@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function getAppointmentsForDay(state, day) {
   const dayFound = state.days.find(currDay => currDay.name === day)
 

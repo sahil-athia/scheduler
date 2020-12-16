@@ -1,13 +1,12 @@
-import React, {useState} from 'react'
-import InterviewerList from '../InterviewerList'
-import Button from '../Button'
+import React, {useState} from 'react';
+import InterviewerList from '../InterviewerList';
+import Button from '../Button';
 
 export default function Form(props) {
   const [name, setName] = useState(props.name || ""); 
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
 
-  // console.log(interviewer)
   const reset =  () => {
     setInterviewer(null)
     setName('')
@@ -15,21 +14,27 @@ export default function Form(props) {
   }
 
   const cancel = () => {
-
     props.onCancel()
     reset()
   }
 
   const validate = () => {
+    if (!name && !interviewer) {
+      setError("Please fill in name and select an interviewer")
+      return;
+    }
     if (name === "") {
       setError("Student name cannot be blank");
       return;
     }
-  
+    if(!interviewer) {
+      setError("Please select an interviewer")
+      return;
+    }    
     props.onSave(name, interviewer);
     reset()
   }
-  // error handling for no user name
+  // error handling for no user name or interviewer selected
 
   return(
   <main className="appointment__card appointment__card--create">
