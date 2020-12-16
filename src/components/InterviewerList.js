@@ -15,20 +15,21 @@ const InterviewerList = (props) => {
       selected={interviewer.id === props.value}
       setInterviewer={event => props.onChange(interviewer.id)}
     />
-  })
+  });
 
   return(
-  <section className="interviewers">
-    <h4 className="interviewers__header text--light">Interviewers</h4>
-    <ul className="interviewers__list">
-      {interviewers}
-    </ul>
-  </section>)
+    <section className="interviewers">
+      <h4 className="interviewers__header text--light">Interviewers</h4>
+      <ul className="interviewers__list">
+        {interviewers}
+      </ul>
+    </section>
+  );
 }
 
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired
 };
-// wnsure the prop passed is an aray
+// esure the prop passed is an aray
 
 export default InterviewerList;

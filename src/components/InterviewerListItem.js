@@ -1,14 +1,13 @@
 import React from "react";
 import classNames from 'classnames';
 import "./InterviewerListItem.scss";
-import { prettyDOM } from "@testing-library/react";
 
 export default function InterviewerListItem(props) {
-  let imgClass = classNames('interviewers__item-image', {
+  const imgClass = classNames('interviewers__item-image', {
     'interviewers__item-image--selected': props.selected
  });
 
-  let liClass = classNames('interviewers__item', {
+  const liClass = classNames('interviewers__item', {
   'interviewers__item--selected': props.selected
   });
 
