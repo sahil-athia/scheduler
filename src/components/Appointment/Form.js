@@ -7,20 +7,20 @@ export default function Form(props) {
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
 
-  const reset =  () => {
-    setInterviewer(null)
-    setName('')
-    setError("")
-  }
+  const reset = () => {
+    setInterviewer(null);
+    setName('');
+    setError("");
+  };
 
   const cancel = () => {
-    props.onCancel()
-    reset()
-  }
+    props.onCancel();
+    reset();
+  };
 
   const validate = () => {
     if (!name && !interviewer) {
-      setError("Please fill in name and select an interviewer")
+      setError("Please fill in name and select an interviewer");
       return;
     }
     if (name === "") {
@@ -28,12 +28,12 @@ export default function Form(props) {
       return;
     }
     if(!interviewer) {
-      setError("Please select an interviewer")
+      setError("Please select an interviewer");
       return;
-    }    
+    }
     props.onSave(name, interviewer);
-    reset()
-  }
+    reset();
+  };
   // error handling for no user name or interviewer selected
 
   return(
@@ -59,5 +59,6 @@ export default function Form(props) {
         <Button confirm onClick={validate}>Save</Button>
       </section>
     </section>
-  </main>)
+  </main>
+  );
 }

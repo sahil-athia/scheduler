@@ -8,7 +8,7 @@ import Status from "./Status";
 import Confirm from "./Confirm";
 import useVisualMode from "hooks/useVisualMode";
 
-import './styles.scss'
+import './styles.scss';
 
 
 export default function Appointment(props) {
@@ -21,11 +21,10 @@ export default function Appointment(props) {
   const CONFIRM = "CONFIRM";
   const ERROR_SAVE = 'ERROR_SAVE';
   const ERROR_DELETE = 'ERROR_DELETE';
-  // const interviewTrue = props.interview ? <Show student={interview.student} interviewer={interview.interviewer} /> : <Empty />
   
   const {mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
-  )
+  );
 
   function save(name, interviewer) {
     const interview = {
@@ -50,25 +49,25 @@ export default function Appointment(props) {
   }
 
   function deleteCancel() {
-    transition(SHOW)
-  }
+    transition(SHOW);
+  };
 
   function showConfirm() {
-    transition(CONFIRM)
-  }
+    transition(CONFIRM);
+  };
 
   function onEdit() {
-    transition(CREATE)
-  }
+    transition(CREATE);
+  };
 
   function onClose() {
-    back()
-  }
+    back();
+  };
 
   function getInterviewerName(id, list){
     for (const people of list) {
       if (people.id === id){
-        return people.name
+        return people.name;
       }
     }
   }
@@ -109,5 +108,5 @@ export default function Appointment(props) {
         />
       )}
     </article>
-  )
+  );
 }
