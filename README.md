@@ -12,29 +12,25 @@ The application allows for the management of interview appointments, with users 
 
 ## Final Product
 
-*** ***
+*** Schedule Screen ***
 
-![""]()
+!["Schedule Screen"](https://github.com/sahil-athia/scheduler/blob/master/docs/Scheduler.png?raw=true)
 
-*** ***
+*** Appointment Form ***
 
-![""]()
+!["Appointment Form"](https://github.com/sahil-athia/scheduler/blob/master/docs/appointment-form.png?raw=true)
 
-*** ***
+*** Booked Appointment ***
 
-![""]()
+!["Booked Appointment"](https://github.com/sahil-athia/scheduler/blob/master/docs/booked-appointment.png?raw=true)
 
-*** ***
+*** Delete Confirmation ***
 
-![""]()
+!["Delete Confirmation"](https://github.com/sahil-athia/scheduler/blob/master/docs/delete-confirmation.png?raw=true)
 
-*** ***
+*** Error Banner ***
 
-![""]()
-
-*** ***
-
-![""]()
+!["Error Banner"](https://github.com/sahil-athia/scheduler/blob/master/docs/error.png?raw=true)
 
 ## Setup
 
