@@ -6,12 +6,12 @@ export default function useApplicationData() {
     days: [],
     appointments:{},
   })
-  
+
   useEffect(() => {
     Promise.all([
-      axios.get(process.env.REACT_APP_GET_DAYS),
-      axios.get(process.env.REACT_APP_GET_APPOINTMENTS),
-      axios.get(process.env.REACT_APP_GET_INTERVIEWERS),
+      axios.get("/api/days"),
+      axios.get("/api/appointments"),
+      axios.get("/api/interviewers"),
     ])
     .then(all => {
       setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}))
@@ -39,7 +39,7 @@ export default function useApplicationData() {
 
     return (
       axios
-        .put(`http://localhost:8001/api/appointments/${id}`, {interview})
+        .put(`/api/appointments/${id}`, {interview})
         .then(() => {
           const notOnEdit = !state.appointments[id].interview ? {...state, appointments, days } : {...state, appointments }
           // if a user it editing a pre-existing appointment, dont change days
@@ -65,7 +65,7 @@ export default function useApplicationData() {
     days[elementsIndex] = {...days[elementsIndex], spots: days[elementsIndex].spots + 1}
     // edit the spots in the correct day in days array to keep track of spots
 
-    return axios.delete(`http://localhost:8001/api/appointments/${id}`)
+    return axios.delete(`/api/appointments/${id}`)
     .then(() => setState(() => ({...state, appointments, days })))
   }
     return {state, setDay, bookInterview, cancelInterview}

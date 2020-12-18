@@ -29,7 +29,8 @@ const InterviewerList = (props) => {
 
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired
+  // displays error when the input is not given as an array, for the InterviewerList
 };
-// esure the prop passed is an aray
+
 
 export default InterviewerList;
