@@ -36,6 +36,8 @@ The application allows for the management of interview appointments, with users 
 
 Install dependencies with `npm install`.
 
+[Grab the API from here](https://github.com/sahil-athia/scheduler-api)
+
 ## Running Webpack Development Server
 
 ```sh
